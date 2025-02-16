@@ -1,0 +1,20 @@
+name: products_api_db
+
+services:
+  products_api_postgres:
+    container_name: products_api_postgres
+    image: postgres:15.6-alpine3.19
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB_NAME}
+      POSTGRES_USER: ${POSTGRES_DB_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRES_DB_PASSWORD}
+      PGPORT: ${POSTGRES_DB_PORT}
+    ports:
+      - '${POSTGRES_DB_PORT}:${POSTGRES_DB_PORT}'
+    volumes:
+      - products_api_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  products_api_postgres_data:
+    driver: local

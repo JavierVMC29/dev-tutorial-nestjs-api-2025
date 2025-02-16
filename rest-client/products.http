@@ -1,0 +1,32 @@
+@base_url=http://localhost:3000/api/products
+
+### Get All Products
+GET {{base_url}}?pageNo=0&pageSize=10
+
+### Get Product by ID
+GET {{base_url}}/1
+
+### Create a New Product
+POST {{base_url}}
+Content-Type: application/json
+
+{
+  "name": "Smartphone X",
+  "description": "A high-end smartphone with an excellent camera.",
+  "price": 999.99,
+  "categories": [1, 2]
+}
+
+### Update Product
+PUT {{base_url}}/1
+Content-Type: application/json
+
+{
+  "name": "Smartphone Y",
+  "description": "An updated version of Smartphone X.",
+  "price": 899.99,
+  "categories": [2]
+}
+
+### Delete Product
+DELETE {{base_url}}/1
